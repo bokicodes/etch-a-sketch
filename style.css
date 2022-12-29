@@ -4,28 +4,25 @@
     box-sizing: border-box;
 }
 body{
-    display: grid;
-    place-items: center;
+    display: flex;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
 }
 .container{
     display: grid;
     grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(16,1fr);
     border: 1px solid black;
+    margin: 50px auto;
 
-    margin-top: 50px;
+    width: 550px;
+    height: 550px;
 }
 
 button{
-    width: 150px;
-    height: 100px;
-    font-size: 20px;
-    background-color: green;
-    color: white;
-    font-weight: bold;
-    border: 1px solid black;
-    cursor: pointer;
-
-    margin-top: 50px;
+    
 }
 button:hover{
     transform: scale(1.1);
