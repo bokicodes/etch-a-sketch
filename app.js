@@ -1,3 +1,4 @@
+
 const container = document.querySelector(".container");
 
 for(let i = 0; i < 256; i++){
@@ -6,10 +7,13 @@ for(let i = 0; i < 256; i++){
 mouseoverDivs();
 
 
-function createDiv(){
+function createDiv(gridSize){
     const div = document.createElement("div");
     div.style.cssText = "width: 24px; height:24px; border: 1px solid black;";
     container.appendChild(div);
+
+    container.style.gridTemplateRows = `repeat(${gridSize},${1}fr)`;
+    container.style.gridTemplateColumns =  `repeat(${gridSize},${1}fr)`;
 }
 
 function mouseoverDivs(){
@@ -23,20 +27,19 @@ function mouseoverDivs(){
 }
 
 const btnChangeGrid = document.querySelector(".btnChangeGrid");
-let gridSize = 16;
 
 btnChangeGrid.addEventListener("click", () => {
     
     const divList = document.querySelectorAll("div");
 
-    gridSize = Number(prompt("Enter the number of squares per side for the new grid: "));
+    let gridSize = Number(prompt("Enter the number of squares per side for the new grid: "));
 
     if(gridSize <= 0){
         alert("You need to enter a number larger then 0!")
         return;
     }
-    if(gridSize > 100){
-        alert("Maximum size is 100 squares!");
+    if(gridSize > 60){
+        alert("Maximum size is 60 squares!");
         return;
     }
     
@@ -47,7 +50,7 @@ btnChangeGrid.addEventListener("click", () => {
 
     //Adding new grid
     for(let i = 0; i < gridSize*gridSize; i++){
-        createDiv();
+        createDiv(gridSize);
     }
 
     mouseoverDivs();
