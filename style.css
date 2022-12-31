@@ -54,6 +54,23 @@ header{
     box-shadow: 0 0 7px aqua;
     padding: 15px;
 }
+.container-pickColor{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+input[type="color"]{
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-color:aqua;
+    border-radius: 5px;
+}
+.pickColor{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
 button{
     padding: 20px 10px;
     font-size: 20px;

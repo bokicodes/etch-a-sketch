@@ -4,7 +4,8 @@ const btnRainbow = document.querySelector(".btnRainbow");
 const btnChangeGrid = document.querySelector(".btnChangeGrid");
 const btnToggleGrid = document.querySelector(".btnToggleGrid");
 const btnReset = document.querySelector(".btnReset");
-
+const colorPicker = document.querySelector("#color");
+let selectedColor = "#000000";
 
 function randomColor(){
     return Math.floor(Math.random() * 255); //vraca broj izmedju 0 i 255
@@ -42,13 +43,16 @@ function mouseoverDivs(){
     else{
         for(let i = 0; i < divList.length; i++){
             divList[i].addEventListener("mouseover", () => {
-                divList[i].style.backgroundColor = "black";
+                divList[i].style.backgroundColor = `${selectedColor}`;
             });
         }
     }
 }
 
-
+// PICK A COLOR
+colorPicker.addEventListener("input", () => {
+    selectedColor = colorPicker.value;
+});
 // MAKE NEW GRID
 
 btnChangeGrid.addEventListener("click", () => {
@@ -137,7 +141,7 @@ btnRainbow.addEventListener("click", () => {
 
         for(let i = 0; i , divList.length; i++){
             divList[i].addEventListener("mouseover", () => {
-                divList[i].style.backgroundColor = "black";
+                divList[i].style.backgroundColor = `${selectedColor}`;
             });
         }
     }   
