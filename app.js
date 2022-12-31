@@ -1,5 +1,14 @@
 
 const container = document.querySelector(".container");
+const btnRainbow = document.querySelector(".btnRainbow");
+const btnChangeGrid = document.querySelector(".btnChangeGrid");
+const btnToggleGrid = document.querySelector(".btnToggleGrid");
+const btnReset = document.querySelector(".btnReset");
+
+
+function randomColor(){
+    return Math.floor(Math.random() * 255); //vraca broj izmedju 0 i 255
+}
 
 for(let i = 0; i < 256; i++){
     createDiv();
@@ -9,29 +18,38 @@ mouseoverDivs();
 
 function createDiv(){
     const div = document.createElement("div");
-    div.style.cssText = "border: 1px solid black; background-color: white;";
+
+    if(btnToggleGrid.classList.contains("btnClicked")){
+        div.style.cssText = "border: none; background-color:white;";
+    }
+    else{
+        div.style.cssText = "border: 1px solid black; background-color: white;";
+    }
     container.appendChild(div);
 }
 
 function mouseoverDivs(){
     const divList = document.querySelectorAll("div");
 
-    for(let i = 0; i < divList.length; i++){
-        divList[i].addEventListener("mouseover", () => {
-            divList[i].style.backgroundColor = "black";
-        });
+    if(btnRainbow.classList.contains("btnClicked")){
+
+        for(let i = 0; i < divList.length; i++){
+            divList[i].addEventListener("mouseover", () => {
+                divList[i].style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+            });
+        }
+    }
+    else{
+        for(let i = 0; i < divList.length; i++){
+            divList[i].addEventListener("mouseover", () => {
+                divList[i].style.backgroundColor = "black";
+            });
+        }
     }
 }
 
 
-function randomColor(){
-    return Math.floor(Math.random() * 255); //vraca broj izmedju 0 i 255
-}
-
-
-// MAKE NEW GRID BUTTON
-
-const btnChangeGrid = document.querySelector(".btnChangeGrid");
+// MAKE NEW GRID
 
 btnChangeGrid.addEventListener("click", () => {
     
@@ -69,7 +87,7 @@ btnChangeGrid.addEventListener("click", () => {
 
 
 // DISABLE GRID LINES BTN
-const btnToggleGrid = document.querySelector(".btnToggleGrid");
+
 btnToggleGrid.addEventListener("click", () => {
     const divList = document.querySelectorAll("div");
 
@@ -89,7 +107,7 @@ btnToggleGrid.addEventListener("click", () => {
 
 
 // RESET
-const btnReset = document.querySelector(".btnReset");
+
 btnReset.addEventListener("click", () => {
     const divList = document.querySelectorAll("div");
     
@@ -100,7 +118,6 @@ btnReset.addEventListener("click", () => {
 
 
 // RAINBOW MODE
-const btnRainbow = document.querySelector(".btnRainbow");
 
 btnRainbow.addEventListener("click", () => {
 
