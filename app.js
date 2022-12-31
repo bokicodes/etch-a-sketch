@@ -24,6 +24,11 @@ function mouseoverDivs(){
 }
 
 
+function randomColor(){
+    return Math.floor(Math.random() * 255); //vraca broj izmedju 0 i 255
+}
+
+
 // MAKE NEW GRID BUTTON
 
 const btnChangeGrid = document.querySelector(".btnChangeGrid");
@@ -96,10 +101,6 @@ btnReset.addEventListener("click", () => {
 
 // RAINBOW MODE
 const btnRainbow = document.querySelector(".btnRainbow");
-
-function randomColor(){
-    return Math.floor(Math.random() * 255); //vraca broj izmedju 0 i 255
-}
 
 btnRainbow.addEventListener("click", () => {
 

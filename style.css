@@ -11,21 +11,26 @@ body{
     display: flex;
     flex-direction: column;
 }
+header{
+    flex-grow: 1;
+}
 .title{
     color: rgb(179, 235, 255);
     font-size: 50px;
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
-    flex: 1;
+    margin-bottom: 40px;
     font-weight: bold;
     letter-spacing: 7px;
+    
 }
 .main{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    flex: 2;
+    gap: 20px;
+    flex-grow: 1;
+    margin-bottom: 30px;
 }
 .buttons-container{
     display: flex;
@@ -75,6 +80,5 @@ footer{
     font-size: 18px;
     color: rgb(151, 227, 255);
     text-align: center;
-    margin-top: 10px;
     font-family: sans-serif;
 }
