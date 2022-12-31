@@ -53,6 +53,7 @@ function mouseoverDivs(){
 colorPicker.addEventListener("input", () => {
     selectedColor = colorPicker.value;
 });
+
 // MAKE NEW GRID
 
 btnChangeGrid.addEventListener("click", () => {
